@@ -42,5 +42,5 @@ separa_linha()
 
 def ano_bissexto():
     ano = int(input("Insira o ano a ser verificado: "))
-    print((ano % 4 == 0 and ano % 100 != 0) or (ano % 100 == 0 and ano % 400 == 0))
+    print((ano % 4 == 0 and ano % 100 != 0) or (ano % 400 == 0))
 ano_bissexto()
