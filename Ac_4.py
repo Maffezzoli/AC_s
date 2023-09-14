@@ -11,6 +11,8 @@ def numPrimo(num):
         
 numPrimo(100)
 
+print()
+
 def quantidade_indeterminada():
     cont1 = cont2 = cont3 = cont4 = 0
     while True:
@@ -26,12 +28,16 @@ def quantidade_indeterminada():
             cont3 += 1
         elif pergunta <= 100:
             cont4 += 1
+            
+    print()
 
     print("Quantidade de números no intervalo [0,25]:", cont1,"\nQuantidade de números no intervalo [26,50]:", cont2,
           "\nQuantidade de números no intervalo [51,75]:", cont3, "\nQuantidade de números no intervalo [76,100]:",cont4)
     print()
 
 quantidade_indeterminada()
+
+print()
 
 def calcula_juros (num_parcelas):
     if num_parcelas == 1:
