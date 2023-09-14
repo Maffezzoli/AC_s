@@ -8,31 +8,49 @@ def numPrimo(num):
         print("Não é primo!")
     else:
         print("É primo!")
-#numPrimo(100)
+        
+numPrimo(100)
 
 def quantidade_indeterminada():
-    pergunta = 1
-    while pergunta > 0:
-            pergunta = int(input("Insira um número:"))
-            if pergunta < 100: #Todos os números a partir de 100 retornam o mesmo resultado
-                cont1 = cont2 = cont3 = cont4 = 0
-                i = pergunta
-                while i >= 0:
-                    if i in range(0,25):
-                        cont1 += 1
-                    elif i in range(26,50):
-                        cont2 += 1
-                    elif i in range(51,75):
-                        cont3 += 1
-                    elif i in range(76,100):
-                        cont4 += 1
-                    i -= 1
-            else: 
-                cont1 = 25
-                cont2 = cont3 = cont4 = 24
-            print("Intervalo [0,25]: ",cont1,"/Intervalo [26,50]: "
-                  ,cont2,"/Intervalo [51,75]: ",cont3,"Intervalo [76,100]: ",cont4)
-#quantidade_indeterminada()
+    cont1 = cont2 = cont3 = cont4 = 0
+    while True:
+        pergunta = int(input("Insira um número : "))
+        
+        if pergunta < 0:
+            break
+        if pergunta <= 25:
+            cont1 += 1
+        elif pergunta <= 50:
+            cont2 += 1
+        elif pergunta <= 75:
+            cont3 += 1
+        elif pergunta <= 100:
+            cont4 += 1
 
-def porcentagem_juros(num_parcelas):
-    "fazer em casa"
+    print("Quantidade de números no intervalo [0,25]:", cont1,"\nQuantidade de números no intervalo [26,50]:", cont2,
+          "\nQuantidade de números no intervalo [51,75]:", cont3, "\nQuantidade de números no intervalo [76,100]:",cont4)
+    print()
+
+quantidade_indeterminada()
+
+def calcula_juros (num_parcelas):
+    if num_parcelas == 1:
+        return 0
+    else:
+        calcula = (num_parcelas / 3) * 5 
+        return calcula + 5
+def mostra(parcelas, valor):
+    juros = calcula_juros(parcelas)
+    valor_juros = round((juros/100) * valor,2)
+    valor_tot = round(valor_juros + valor,2)
+    valor_parcela = round(valor_tot / parcelas)
+    print("Valor dos juros: ",valor_juros,", Valor total: ",valor_tot,", Quantidade de parcelas: ", parcelas, "Valor da parcela: ",valor_parcela)
+def funcao_principal(valor):
+    for parcelas in range(1, 13, 3):
+        if parcelas > 1:
+            parcelas -= 1
+            mostra(parcelas, valor)
+        else:
+            mostra(parcelas, valor)
+
+funcao_principal(1000)
